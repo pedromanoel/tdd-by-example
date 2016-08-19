@@ -10,6 +10,14 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+test {
+    reports.html.enabled = false
+
+    testLogging {
+        exceptionFormat "full"
+    }
+}
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
