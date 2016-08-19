@@ -1,14 +1,10 @@
-import junit.framework.TestCase;
 import money.Dollar;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by pevangeli on 18/08/16.
- */
-public class MoneyTest extends TestCase {
+public class MoneyTest {
 
     @Test
     public void testMultiplication() throws Exception {
@@ -18,5 +14,11 @@ public class MoneyTest extends TestCase {
 
         product = five.times(3);
         assertThat(product.amount, is(15));
+    }
+
+    @Test
+    public void testEquality() throws Exception {
+        assertThat(new Dollar(5), is(equalTo(new Dollar(5))));
+        assertThat(new Dollar(5), is(not(equalTo(new Dollar(6)))));
     }
 }
